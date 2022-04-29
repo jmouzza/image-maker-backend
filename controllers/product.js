@@ -8,18 +8,23 @@ var controller = {
         res.send("PAGINA TEST");
     },
     getProducts: (req,res) => {
-        Product.find({}).exec((err,products)=>{
-            if(err){
-                return res.status(400).send({
-                    status: 400,
-                    message: "Ocurrió un error al buscar los productos"
+        try {
+            Product.find({}).exec((err,products)=>{
+                if(err){
+                    return res.status(400).send({
+                        status: 400,
+                        message: "Ocurrió un error al buscar los productos"
+                    });
+                }
+                return res.status(200).send({
+                    status: 200,
+                    products
                 });
-            }
-            return res.status(200).send({
-                status: 200,
-                products
-            });
-        })
+            })
+            
+        } catch (error) {
+            res.send("error: " + error);
+        }
     },
     findProducts: (req,res) => {
         var titulo = req.params.title;

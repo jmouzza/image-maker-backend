@@ -10,7 +10,7 @@ var url = "mongodb+srv://admin:admin@cluster0.j5hgm.mongodb.net/test";
 
 var controller = {
     test:(req,res) => {
-        res.send("PAGINA TEST");
+        return res.send("PAGINA TEST");
     },
     getProducts: (req,res) => {
        
@@ -28,7 +28,9 @@ var controller = {
         }) */
 
         MongoClient.connect(url, function(err, db) {
-            if (err) throw err;
+            if (err) {
+                return res.send(err);
+            };
             var dbo = db.db("test");
             //Find all documents in the customers collection:
             dbo.collection("products").find({}).toArray(function(err, result) {

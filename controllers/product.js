@@ -1,7 +1,6 @@
 'use strict'
 
 var validator = require("validator");
-const product = require("../models/product");
 var Product = require("../models/product")
 
 var controller = {

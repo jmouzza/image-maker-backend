@@ -7,5 +7,6 @@ var router = express.Router();
     router.post("/saveProduct", ProductController.saveProduct);
     router.get("/getProducts", ProductController.getProducts);
     router.get("/findProducts/:title", ProductController.findProducts);
+    router.get("/test", ProductController.test);
 
 module.exports = router;

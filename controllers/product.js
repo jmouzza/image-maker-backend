@@ -4,6 +4,9 @@ var validator = require("validator");
 var Product = require("../models/product")
 
 var controller = {
+    test:(req,res) => {
+        res.send("PAGINA TEST");
+    },
     getProducts: (req,res) => {
         Product.find({}).exec((err,products)=>{
             if(err){

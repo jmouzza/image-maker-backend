@@ -15,3 +15,5 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.j5hgm.mongodb.net/test",{ u
     
 })
 .catch((err)=>console.log(err));
+
+module.exports = mongoose;

@@ -14,3 +14,4 @@ mongoose.connect("mongodb://localhost:27017/products",{ useNewUrlParser : true }
             console.log("Servidor corriendo en http://localhost:"+port);
         })
     });
+module.exports = app;

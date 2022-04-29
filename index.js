@@ -13,4 +13,5 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.j5hgm.mongodb.net/test",{ u
         console.log("Servidor corriendo en http://localhost:"+port);
     })
     
-});
+})
+.catch((err)=>console.log(err));

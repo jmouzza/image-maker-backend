@@ -5,7 +5,7 @@ var Product = require("../models/product")
 
 var mongo = require ('mongodb') 
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://admin:admin@cluster0.j5hgm.mongodb.net/test"; 
+var url = "mongodb+srv://admin:admin@cluster0.j5hgm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"; 
 
 
 var controller = {

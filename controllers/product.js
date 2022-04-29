@@ -1,12 +1,11 @@
 'use strict'
 
+//var Product = require("../models/product")
 var validator = require("validator");
-var Product = require("../models/product")
-
 var mongo = require ('mongodb') 
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://admin:admin@cluster0.j5hgm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"; 
-
+var config_db = require('../src/config/config');
+var url = "mongodb+srv://"+config_db.user+":"+config_db.password+"@"+config_db.host+"/myFirstDatabase?retryWrites=true&w=majority"; 
 
 var controller = {
     test:(req,res) => {
@@ -80,19 +79,18 @@ var controller = {
                 if (err) throw err;
                 var dbo = db.db("test");
                 var myobj = { 
-                    id: params.id,
                     titulo: params.titulo,
                     precio: params.precio,
                     descripcion: params.descripcion,
                     img: params.img,
                 };
-                dbo.collection("products").insertOne(myobj, function(err, res) {
+                dbo.collection("products").insertOne(myobj, function(err, respuesta) {
                   if (err) throw err;
                     db.close();
                     return res.status(200).send({
                         status: 200,
-                        product,
-                        message:"Producto: "+ myobj + " creado satisfactoriamente"
+                        product:respuesta,
+                        message:"Producto: "+ myobj.titulo + " creado satisfactoriamente"
                     });
                 });
               });          

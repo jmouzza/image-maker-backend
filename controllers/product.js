@@ -31,6 +31,7 @@ var controller = {
             if (err) {
                 return res.send(err);
             };
+            return res.send(db);
             var dbo = db.db("test");
             //Find all documents in the customers collection:
             dbo.collection("products").find({}).toArray(function(err, result) {

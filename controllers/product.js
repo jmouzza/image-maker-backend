@@ -23,7 +23,7 @@ var controller = {
             })
             
         } catch (error) {
-            res.send("error: " + error);
+            res.send("error: " + error.message);
         }
     },
     findProducts: (req,res) => {
